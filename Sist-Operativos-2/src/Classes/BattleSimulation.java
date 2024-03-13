@@ -47,7 +47,7 @@ public class BattleSimulation extends Thread{
         
         while (true){
             this.admin.chooseCharacter(this.ai);
-            int num = this.ai.work();
+            int num = this.ai.work(this.StudioNK, this.StudioCN);
             System.out.println(num);
             this.ai.state = "Esperando";
             this.admin.update(this.StudioNK);

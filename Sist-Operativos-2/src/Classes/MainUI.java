@@ -61,6 +61,8 @@ public class MainUI extends javax.swing.JFrame {
                     showCola5.setText(this.simulation.StudioCN.cola2.showCola());
                     showCola6.setText(this.simulation.StudioCN.cola3.showCola());
                     
+                    winsNK.setText(Integer.toString(this.simulation.StudioNK.winners.getSize()));
+                    winsCN.setText(Integer.toString(this.simulation.StudioCN.winners.getSize()));
                     
                     
                     if ("Decidiendo resultado".equals(this.simulation.ai.state)) {
@@ -137,7 +139,11 @@ public class MainUI extends javax.swing.JFrame {
         jLabel19 = new javax.swing.JLabel();
         jLabel20 = new javax.swing.JLabel();
         jLabel21 = new javax.swing.JLabel();
-        jLabel22 = new javax.swing.JLabel();
+        winsCN = new javax.swing.JLabel();
+        jLabel23 = new javax.swing.JLabel();
+        jLabel24 = new javax.swing.JLabel();
+        jLabel25 = new javax.swing.JLabel();
+        winsNK = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         IAtim = new javax.swing.JTextField();
         jPanel3 = new javax.swing.JPanel();
@@ -311,10 +317,30 @@ public class MainUI extends javax.swing.JFrame {
         jLabel21.setText("Estado de la IA:");
         getContentPane().add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 100, -1, -1));
 
-        jLabel22.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jLabel22.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel22.setText("Cola 1");
-        getContentPane().add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 140, -1, -1));
+        winsCN.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        winsCN.setForeground(new java.awt.Color(255, 255, 255));
+        winsCN.setText("0");
+        getContentPane().add(winsCN, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, 30, 80, -1));
+
+        jLabel23.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jLabel23.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel23.setText("Cola 1");
+        getContentPane().add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 140, -1, -1));
+
+        jLabel24.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jLabel24.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel24.setText("Wins:");
+        getContentPane().add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 30, -1, -1));
+
+        jLabel25.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jLabel25.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel25.setText("Wins:");
+        getContentPane().add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 30, -1, -1));
+
+        winsNK.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        winsNK.setForeground(new java.awt.Color(255, 255, 255));
+        winsNK.setText("0");
+        getContentPane().add(winsNK, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 30, 90, -1));
 
         jButton1.setText("Aceptar");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -440,7 +466,9 @@ public class MainUI extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
-    private javax.swing.JLabel jLabel22;
+    private javax.swing.JLabel jLabel23;
+    private javax.swing.JLabel jLabel24;
+    private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -459,5 +487,7 @@ public class MainUI extends javax.swing.JFrame {
     private javax.swing.JLabel showCola4;
     private javax.swing.JLabel showCola5;
     private javax.swing.JLabel showCola6;
+    private javax.swing.JLabel winsCN;
+    private javax.swing.JLabel winsNK;
     // End of variables declaration//GEN-END:variables
 }

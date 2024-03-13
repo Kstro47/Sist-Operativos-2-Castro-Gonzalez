@@ -12,6 +12,8 @@ public class Studio {
     public String studioID;
     public int charNum = 0;
     
+    public Lista winners;
+    
     public Cola cola1;
     public Cola cola2;
     public Cola cola3;
@@ -20,6 +22,8 @@ public class Studio {
     public String[][] charArray;
     
     public Studio(String studioID){
+        this.winners = new Lista();
+        
         this.cola1 = new Cola();
         this.cola2 = new Cola();
         this.cola3 = new Cola();

@@ -20,18 +20,18 @@ public class AI{
     public Character CharB;
     public String state;
     public int stateInt;
-    public Lista winners;
+    
     public int time = 10;
     public String startText = "";
     public String announceText = "";
     public String finalText = "";
     
     public AI(){
-        this.winners = new Lista();
+        
     }
     
     
-    public int decideResult(){
+    public int decideResult(Studio studioA, Studio studioB){
         Random random = new Random();
         int randomNum = random.nextInt(101);
         if (randomNum < 41) {
@@ -41,7 +41,7 @@ public class AI{
                             if (CharA.strength > 50) {
                                 this.finalText = CharA.name + " le hizo oneshot a " + CharB.name + ", no hay counterplay.";
                                 CharB.health = 0;
-                                this.winners.append(CharA);
+                                studioA.winners.append(CharA);
                                 return 0;
                             }
                             this.announceText += CharA.name + " le lanzó unos podere a " + CharB.name + " quitándole " + CharA.skill + "hp" + "\n";
@@ -59,7 +59,7 @@ public class AI{
                             if (CharB.strength > 50) {
                                 this.finalText = CharB.name + " le hizo oneshot a " + CharA.name + ", no hay counterplay.";
                                 CharA.health = 0;
-                                this.winners.append(CharB);
+                                studioB.winners.append(CharB);
                                 return 0;
                             }
                             this.announceText += CharB.name + " le lanzó unos podere a " + CharA.name + " quitándole " + CharB.skill + "hp"+ "\n";
@@ -80,7 +80,7 @@ public class AI{
                             if (CharB.strength > 50) {
                                 this.finalText = CharB.name + " le hizo oneshot a " + CharA.name + ", no hay counterplay.";
                                 CharA.health = 0;
-                                this.winners.append(CharB);
+                                studioB.winners.append(CharB);
                                 return 0;
                             }
                             this.announceText += CharB.name + " le lanzó unos podere a " + CharA.name + " quitándole " + CharB.skill + "hp"+ "\n";
@@ -98,7 +98,7 @@ public class AI{
                             if (CharA.strength > 50) {
                                 this.finalText = CharA.name + " le hizo oneshot a " + CharB.name + ", no hay counterplay.";
                                 CharB.health = 0;
-                                this.winners.append(CharA);
+                                studioA.winners.append(CharA);
                                 return 0;
                             }
                             this.announceText += CharA.name + " le lanzó unos podere a " + CharB.name + " quitándole " + CharA.skill + "hp"+ "\n";
@@ -115,10 +115,10 @@ public class AI{
             }
             if (CharA.health < 1) {
                 this.finalText = CharB.name + " desfiguró a " + CharA.name + " y ganó.";
-                this.winners.append(CharB);
+                studioB.winners.append(CharB);
             } else {
                 this.finalText = CharA.name + " le partió el tórax a " + CharB.name + " y ganó.";
-                this.winners.append(CharA);
+                studioA.winners.append(CharA);
             }
             return 0;       
         } else if (randomNum > 40 && randomNum < 68){
@@ -134,14 +134,14 @@ public class AI{
         
     
 
-    public int work(){
+    public int work(Studio StudioNK, Studio StudioCN){
             int num = 0;
             try { 
                 this.startText = "Empieza la pelea entre "+ CharA.name + " vs " + CharB.name;
                 this.state = "Decidiendo resultado";
                 this.stateInt = 1;
                 sleep(this.time*1000);
-                num = this.decideResult();
+                num = this.decideResult(StudioNK, StudioCN);
                 this.state = "Anunciando resultado";
                 this.stateInt = 1;
                 sleep(5000);
